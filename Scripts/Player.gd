@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 onready var ray = $RayCast2D
 onready var tween = $Tween
@@ -23,17 +23,22 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir) # "ui_down"
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 
 func move(dir):
+	var game = get_parent()
 	ray.cast_to = inputs[dir] * tile_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 #		position += dir * tile_size
 		move_tween(dir)
+		game.moves += 1
 	else:
 		var collider = ray.get_collider()
 		if collider.is_in_group("boxes"):
 			collider.move(inputs[dir])
+			game.moves += 1
 
 func move_tween(dir):
 	tween.interpolate_property(self, "position",

@@ -1,7 +1,7 @@
 extends Area2D
 
-
+signal hit
 
 func _on_Spot_body_entered(body):
-	hide()
-	print("hello")
+	if body.is_in_group('boxes'):
+		emit_signal('hit')
