@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var tile_size = 64
-export var speed = 3
+export var speed = 5
 
 onready var tween = $Tween
 onready var ray = $RayCast2D

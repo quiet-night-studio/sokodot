@@ -2,7 +2,7 @@ extends Area2D
 
 onready var ray = $RayCast2D
 onready var tween = $Tween
-export var speed = 3
+export var speed = 7 
 
 var tile_size = 64
 
@@ -15,7 +15,7 @@ var inputs = {
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
-	#position += Vector2.ONE * tile_size/2
+	#position += Vector2.ONE * tile_size/2 -- Doesnt work because of the player anchor
 
 func _unhandled_input(event):
 	if tween.is_active():
