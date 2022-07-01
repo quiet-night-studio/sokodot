@@ -58,7 +58,6 @@ flat = true
 margin_top = 222.0
 margin_right = 408.0
 margin_bottom = 329.0
-focus_neighbour_bottom = NodePath("../Level1_Button")
 text = "Level 3"
 flat = true
 

@@ -33,11 +33,10 @@ margin_top = -336.0
 margin_right = 856.0
 margin_bottom = -7.0
 
-[node name="Restart_Button" type="Button" parent="Menu_Buttons"]
+[node name="MainMenu_Button" type="Button" parent="Menu_Buttons"]
 margin_right = 408.0
 margin_bottom = 107.0
-focus_neighbour_top = NodePath("../Quit_Button")
-text = "Restart"
+text = "Main Menu"
 flat = true
 
 [node name="Levels_Button" type="Button" parent="Menu_Buttons"]
@@ -51,7 +50,6 @@ flat = true
 margin_top = 222.0
 margin_right = 408.0
 margin_bottom = 329.0
-focus_neighbour_bottom = NodePath("../Restart_Button")
 text = "Quit"
 flat = true
 
@@ -65,6 +63,6 @@ text = "Paused"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="Menu_Buttons/Restart_Button" to="." method="_on_Restart_Button_pressed"]
+[connection signal="pressed" from="Menu_Buttons/MainMenu_Button" to="." method="_on_MainMenu_Button_pressed"]
 [connection signal="pressed" from="Menu_Buttons/Levels_Button" to="." method="_on_Levels_Button_pressed"]
 [connection signal="pressed" from="Menu_Buttons/Quit_Button" to="." method="_on_Quit_Button_pressed"]
