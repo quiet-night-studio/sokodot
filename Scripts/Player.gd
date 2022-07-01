@@ -30,6 +30,11 @@ func _unhandled_input(event):
 			move(dir)
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
+	#if event.is_action_pressed("pause"):
+		#var pause = load('res://Scenes/Pause_Menu.tscn').instance()
+		#get_tree().current_scene.add_child(pause)
+	if event.is_action_pressed("pause"):
+		get_tree().change_scene("res://Scenes/Pause_Menu.tscn")
 	if event.is_action_pressed("ui_left"):
 		get_parent().get_node("Inputs/Input").set_texture(Left_Input)
 	elif event.is_action_pressed("ui_right"):

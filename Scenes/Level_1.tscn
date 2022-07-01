@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://fonts/xolonium-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
 [ext_resource path="res://HUD.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=4]
@@ -36,16 +35,22 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 0/z_index = 0
 
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://fonts/ALBA____.TTF"
+
 [sub_resource type="DynamicFont" id=3]
 size = 48
-font_data = ExtResource( 1 )
+font_data = SubResource( 6 )
 
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
 
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://fonts/ALBA____.TTF"
+
 [sub_resource type="DynamicFont" id=5]
 size = 32
-font_data = ExtResource( 1 )
+font_data = SubResource( 7 )
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource( 2 )
