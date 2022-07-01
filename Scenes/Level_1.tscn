@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://fonts/xolonium-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Spot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sokoban_tilesheet.png" type="Texture" id=8]
+[ext_resource path="res://assets/No_Input.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -127,6 +128,14 @@ position = Vector2( 1024, 448 )
 
 [node name="Deadzone8" parent="Deadzones" instance=ExtResource( 5 )]
 position = Vector2( 832, 448 )
+
+[node name="Inputs" type="Node2D" parent="."]
+
+[node name="Input" type="Sprite" parent="Inputs"]
+position = Vector2( 1088, 576 )
+scale = Vector2( 0.372, 0.412903 )
+texture = ExtResource( 9 )
+centered = false
 
 [connection signal="hit" from="Spot" to="." method="_on_Spot_hit"]
 [connection signal="hit" from="Deadzones/Deadzone" to="." method="_on_Deadzone_hit"]

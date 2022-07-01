@@ -5,7 +5,7 @@ var moves = 0
 
 
 func _ready():
-	$HUD/LevelLabel.text = "Level 1"
+	$HUD/LevelLabel.text = "Level 3"
 	$HUD/LevelLabel.show()
 	$Inputs/Input.show()
 	
