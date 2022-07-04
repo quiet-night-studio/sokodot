@@ -3,7 +3,6 @@ extends Node2D
 var spot_counter = 1
 var moves = 0
 
-
 func _ready():
 	$HUD/LevelLabel.text = "Level 3"
 	$HUD/LevelLabel.show()
@@ -11,7 +10,6 @@ func _ready():
 	
 func _process(delta):
 	$HUD/MoveLabel.text = "Moves: " + str(moves)
-
 
 func _on_Spot_hit():
 	spot_counter -= 1
@@ -23,4 +21,3 @@ func _on_Deadzone_hit():
 	$HUD.show_game_over_lose()
 	yield(get_tree().create_timer(5.0), "timeout")
 	get_tree().reload_current_scene()
-	
