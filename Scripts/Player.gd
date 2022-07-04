@@ -40,15 +40,15 @@ func _unhandled_input(event):
 	# Move the player
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
-			match(dir):
-				"ui_left":
-					get_parent().get_node("Inputs/Input").set_texture(Left_Input)
-				"ui_right":
-					get_parent().get_node("Inputs/Input").set_texture(Right_Input)
-				"ui_up":
-					get_parent().get_node("Inputs/Input").set_texture(Up_Input)
-				"ui_down":
-					get_parent().get_node("Inputs/Input").set_texture(Down_Input)
+#			match(dir):
+#				"ui_left":
+#					get_parent().get_node("Inputs/Input").set_texture(Left_Input)
+#				"ui_right":
+#					get_parent().get_node("Inputs/Input").set_texture(Right_Input)
+#				"ui_up":
+#					get_parent().get_node("Inputs/Input").set_texture(Up_Input)
+#				"ui_down":
+#					get_parent().get_node("Inputs/Input").set_texture(Down_Input)
 			move(dir)
 
 func move(dir):
@@ -61,7 +61,9 @@ func move(dir):
 		move_tween(dir)
 		# get_parent returns the parent node so we can access its `moves` property directly, there
 		# is no need to creater a variable for it since it is only being used here.
-		get_parent().moves += 1
+		
+		# get_parent().moves += 1
+		#get_parent().get_parent().update_moves()
 	else:
 		if collider.is_in_group("boxes"):
 			collider.move(inputs[dir])

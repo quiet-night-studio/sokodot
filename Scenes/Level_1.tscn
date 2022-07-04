@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
-[ext_resource path="res://HUD.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Deadzone.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Spot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sokoban_tilesheet.png" type="Texture" id=8]
 [ext_resource path="res://assets/No_Input.png" type="Texture" id=9]
@@ -35,23 +33,6 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="DynamicFontData" id=6]
-font_path = "res://fonts/ALBA____.TTF"
-
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = SubResource( 6 )
-
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
-
-[sub_resource type="DynamicFontData" id=7]
-font_path = "res://fonts/ALBA____.TTF"
-
-[sub_resource type="DynamicFont" id=5]
-size = 32
-font_data = SubResource( 7 )
-
 [node name="Level_1" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -63,59 +44,8 @@ tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 196610, 0, 0, 196613, 0, 0, 196625, 0, 0, 262146, 0, 0, 262149, 0, 0, 262161, 0, 0, 327682, 0, 0, 327685, 0, 0, 327692, 0, 0, 327697, 0, 0, 393218, 0, 0, 393228, 0, 0, 393233, 0, 0, 458754, 0, 0, 458764, 0, 0, 458769, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 192, 192 )
-
 [node name="Box" parent="." instance=ExtResource( 4 )]
 position = Vector2( 448, 384 )
-
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( 3 )
-
-[node name="WinLabel" type="Label" parent="HUD"]
-margin_left = 384.0
-margin_top = 50.0
-margin_right = 960.0
-margin_bottom = 128.0
-theme = SubResource( 4 )
-align = 1
-
-[node name="LevelLabel" type="Label" parent="HUD"]
-margin_right = 256.0
-margin_bottom = 50.0
-theme = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-
-[node name="MoveLabel" type="Label" parent="HUD"]
-margin_top = 50.0
-margin_right = 256.0
-margin_bottom = 100.0
-theme = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-
-[node name="ResetLabel" type="Label" parent="HUD"]
-margin_left = 1132.0
-margin_right = 1280.0
-margin_bottom = 128.0
-theme = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "R: reset
-ESC: menu "
-
-[node name="LoseLabel" type="Label" parent="HUD"]
-margin_left = 448.0
-margin_right = 832.0
-margin_bottom = 128.0
-theme = SubResource( 4 )
-align = 1
-
-[node name="CountdownLabel" type="Label" parent="HUD"]
-margin_left = 384.0
-margin_top = 576.0
-margin_right = 928.0
-margin_bottom = 640.0
-theme = SubResource( 4 )
-align = 1
 
 [node name="Deadzones" type="Node2D" parent="."]
 
@@ -150,6 +80,9 @@ position = Vector2( 1088, 576 )
 scale = Vector2( 0.372, 0.412903 )
 texture = ExtResource( 9 )
 centered = false
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 192, 192 )
 
 [connection signal="hit" from="Spot" to="." method="_on_Spot_hit"]
 [connection signal="hit" from="Deadzones/Deadzone" to="." method="_on_Deadzone_hit"]

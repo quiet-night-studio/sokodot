@@ -1,0 +1,142 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/sokodot_menu.webm" type="VideoStream" id=2]
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = SubResource( 6 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=9]
+size = 128
+font_data = SubResource( 8 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = SubResource( 1 )
+
+[sub_resource type="Theme" id=10]
+default_font = SubResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="WinLabel" type="Label" parent="."]
+margin_left = 384.0
+margin_top = 50.0
+margin_right = 960.0
+margin_bottom = 128.0
+theme = SubResource( 4 )
+align = 1
+
+[node name="LevelLabel" type="Label" parent="."]
+margin_right = 256.0
+margin_bottom = 50.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+
+[node name="MoveLabel" type="Label" parent="."]
+margin_top = 50.0
+margin_right = 256.0
+margin_bottom = 100.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+
+[node name="ResetLabel" type="Label" parent="."]
+margin_left = 1132.0
+margin_right = 1280.0
+margin_bottom = 128.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "R: reset
+ESC: menu "
+
+[node name="LoseLabel" type="Label" parent="."]
+margin_left = 448.0
+margin_right = 832.0
+margin_bottom = 128.0
+theme = SubResource( 4 )
+align = 1
+
+[node name="CountdownLabel" type="Label" parent="."]
+margin_left = 384.0
+margin_top = 576.0
+margin_right = 928.0
+margin_bottom = 640.0
+theme = SubResource( 4 )
+align = 1
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="Sokodot" type="Label" parent="."]
+margin_left = 256.0
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 9 )
+text = "Sokodot"
+align = 1
+valign = 1
+
+[node name="ButtonControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Menu" type="VBoxContainer" parent="ButtonControl"]
+margin_left = 439.68
+margin_top = 384.0
+margin_right = 847.68
+margin_bottom = 713.0
+
+[node name="Play" type="Button" parent="ButtonControl/Menu"]
+margin_right = 408.0
+margin_bottom = 107.0
+focus_neighbour_top = NodePath("../Quit")
+text = "Play"
+flat = true
+
+[node name="Levels" type="Button" parent="ButtonControl/Menu"]
+margin_top = 111.0
+margin_right = 408.0
+margin_bottom = 218.0
+text = "Level select"
+flat = true
+
+[node name="Quit" type="Button" parent="ButtonControl/Menu"]
+margin_top = 222.0
+margin_right = 408.0
+margin_bottom = 329.0
+focus_neighbour_bottom = NodePath("../Play")
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="ButtonControl/Menu/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="ButtonControl/Menu/Levels" to="." method="_on_Levels_pressed"]
+[connection signal="pressed" from="ButtonControl/Menu/Quit" to="." method="_on_Quit_pressed"]
