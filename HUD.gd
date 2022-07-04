@@ -14,10 +14,7 @@ func show_game_over_win():
 	$WinLabel.show()
 	yield(get_tree().create_timer(1.0), "timeout")
 	#get_tree().change_scene("res://Scenes/Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
-	
-	
-	
-	
+
 func show_game_over_lose():
 	$LoseLabel.text = "Press R to Reset"
 	$LoseLabel.show()
