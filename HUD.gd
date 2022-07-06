@@ -6,8 +6,11 @@ signal start_game
 func _ready():
 	$ButtonControl/Menu/Play.grab_focus()
 
-func update_moves(moves):
-	$MoveLabel.text = str(moves)
+func update_moves(number):
+	$MoveCounter.text = number
+
+func display_level(level):
+	$LevelLabel.text = level
 
 # ==================================================================================================
 

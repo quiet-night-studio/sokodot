@@ -1,6 +1,7 @@
 extends Node2D
 
 var spot_counter = 1
+var display_name: String = "Level 1"
 
 func _ready():
 	print(get_parent())

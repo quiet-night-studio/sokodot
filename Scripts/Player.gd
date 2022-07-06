@@ -59,6 +59,7 @@ func move(dir):
 	var collider = ray.get_collider()
 	if !collider:
 		move_tween(dir)
+		get_parent().update_moves()
 		# get_parent returns the parent node so we can access its `moves` property directly, there
 		# is no need to creater a variable for it since it is only being used here.
 		

@@ -56,10 +56,22 @@ custom_fonts/font = SubResource( 5 )
 
 [node name="MoveLabel" type="Label" parent="."]
 margin_top = 50.0
-margin_right = 256.0
-margin_bottom = 100.0
+margin_right = 102.0
+margin_bottom = 101.0
+rect_pivot_offset = Vector2( 87, 26 )
 theme = SubResource( 4 )
 custom_fonts/font = SubResource( 5 )
+text = "Moves:"
+
+[node name="MoveCounter" type="Label" parent="."]
+margin_left = 109.0
+margin_top = 50.0
+margin_right = 211.0
+margin_bottom = 101.0
+rect_pivot_offset = Vector2( 87, 26 )
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "0"
 
 [node name="ResetLabel" type="Label" parent="."]
 margin_left = 1132.0
