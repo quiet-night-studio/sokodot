@@ -4,8 +4,7 @@ var spot_counter = 1
 var display_name: String
 
 func _ready():
-	print(get_parent())
-	display_name = "Level " + str(int(name))
+	display_name = "Level " + str(int(filename))
 
 func start_position() -> Vector2:
 	return $StartPosition.position
@@ -22,9 +21,15 @@ func spot_manager():
 	spot_counter -= 1
 	if spot_counter == 0:
 		get_parent().find_node('HUD').show_game_over_win()
-		#get_parent().change_level("Level_4")
-		print("level 4 doesn't exist")
-
+		#get_parent().change_level("Level_2")
+		yield(get_tree().create_timer(5.0), "timeout") # This timeout is needed to give line 23 enough time to execute it's actions.
+		var file = File.new()
+		if file.file_exists("res://Scenes/Level_" + str(int(filename) + 1) + ".tscn"):
+			get_parent().change_level("Level_" + str(int(filename) + 1 ))
+		else:
+			print('The next level does not exist.')
+			print("res://Scenes/Level_" + str(int(filename) + 1) + ".tscn")
+		
 #func _on_Spot_hit():
 #	spot_counter -= 1
 #	$HUD.show_game_over_win()

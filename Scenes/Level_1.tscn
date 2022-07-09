@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Deadzone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Spot.tscn" type="PackedScene" id=7]
@@ -9,6 +9,9 @@
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "sokoban_tilesheet.png 0"
@@ -30,10 +33,16 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[node name="Level_1" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Spot" parent="." instance=ExtResource( 7 )]
