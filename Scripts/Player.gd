@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var ray = $RayCast2D
 onready var tween = $Tween
 export var speed = 7 
+var should_move = true
 
 var tile_size = 64
 
@@ -25,6 +26,9 @@ func _ready():
 	# position += Vector2.ONE * tile_size/2
 
 func _unhandled_input(event):
+	if !should_move:
+		return
+		
 	# If the transition animation is happening, don't move the player
 	if tween.is_active():
 		return
@@ -36,6 +40,8 @@ func _unhandled_input(event):
 	# Pause the game
 	if event.is_action_pressed("pause"):
 		get_tree().change_scene("res://Scenes/Pause_Menu.tscn")
+		
+	
 
 	# Move the player
 	for dir in inputs.keys():

@@ -37,28 +37,28 @@ func _on_Levels_pressed():
 func show_game_over_win():
 	$WinLabel.text = "You won!"
 	$WinLabel.show()
-	yield(get_tree().create_timer(2.0), "timeout")
-	$CountdownLabel.text = "Switching levels in 3..."
-	$CountdownLabel.show()
-	yield(get_tree().create_timer(1.0), "timeout")
-	$CountdownLabel.text = "Switching levels in 2..."
-	yield(get_tree().create_timer(1.0), "timeout")
-	$CountdownLabel.text = "Switching levels in 1..."
-	yield(get_tree().create_timer(1.0), "timeout")
+	#yield(get_tree().create_timer(0.5), "timeout")
+#	$CountdownLabel.text = "Switching levels in 3..."
+#	$CountdownLabel.show()
+#	yield(get_tree().create_timer(1.0), "timeout")
+#	$CountdownLabel.text = "Switching levels in 2..."
+#	yield(get_tree().create_timer(1.0), "timeout")
+#	$CountdownLabel.text = "Switching levels in 1..."
+#	yield(get_tree().create_timer(1.0), "timeout")
 	#get_tree().change_scene("res://Scenes/Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 
 func show_game_over_lose():
 	$WinLabel.hide()
-	$LoseLabel.text = "Press R to Reset"
+	$LoseLabel.text = "Try again!"
 	$LoseLabel.show()
-	yield(get_tree().create_timer(2.0), "timeout")
-	$CountdownLabel.text = "Restarting in 3..."
-	$CountdownLabel.show()
-	yield(get_tree().create_timer(1.0), "timeout")
-	$CountdownLabel.text = "Restarting in 2..."
-	yield(get_tree().create_timer(1.0), "timeout")
-	$CountdownLabel.text = "Restarting in 1..."
-	yield(get_tree().create_timer(1.0), "timeout")
-	$CountdownLabel.hide()
+#	yield(get_tree().create_timer(2.0), "timeout")
+#	$CountdownLabel.text = "Restarting in 3..."
+#	$CountdownLabel.show()
+#	yield(get_tree().create_timer(1.0), "timeout")
+#	$CountdownLabel.text = "Restarting in 2..."
+#	yield(get_tree().create_timer(1.0), "timeout")
+#	$CountdownLabel.text = "Restarting in 1..."
+#	yield(get_tree().create_timer(1.0), "timeout")
+#	$CountdownLabel.hide()
 	
 	# There must be a better system to do this, possibly using a timer, but it is 12pm.
