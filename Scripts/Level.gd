@@ -5,38 +5,20 @@ var display_name: String
 
 signal game_end
 
+# When level loaded, display the level number based off of the name of the level filename.
 func _ready():
-	display_name = "Level " + str(int(filename))
+	display_name = "Level " + str(int(filename)) # -> res://Scenes/Level_X.tscn
 
+# Sends game script location of the Position2D node when called upon - used when resetting, changing, or leaving a level.
 func start_position() -> Vector2:
 	return $StartPosition.position
-	
-#func _ready():
-#	get_parent().show_level("Level 1")
-#	$HUD/LevelLabel.text = "Level 1"
-#	$HUD/LevelLabel.show()
-#	$Inputs/Input.show()
-	
-#func _process(delta):
-#	$HUD/MoveLabel.text = "Moves: " + str(moves)
 
+# If all spots are returning a value of 0, call the win function and tell it to result with the name of the next level.
 func spot_manager():
 	spot_counter -= 1
 	if spot_counter == 0:
 		var level_path = "res://Scenes/Level_" + str(int(filename) + 1) + ".tscn"
 		get_parent().game_win(level_path)
 		
-		
-#func _on_Spot_hit():
-#	spot_counter -= 1
-#	$HUD.show_game_over_win()
-#	yield(get_tree().create_timer(5.0), "timeout")
-#	get_tree().change_scene("res://Scenes/Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
-#
-#func _on_Deadzone_hit():
-	#get_parent().game_end()
-
-
-
-func _on_Deadzone_dead():
+func _on_Deadzone_dead(): # Consider changing the name of this function to something more understandable.
 	get_parent().game_end()
