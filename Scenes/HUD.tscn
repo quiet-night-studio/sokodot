@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sokodot_menu.webm" type="VideoStream" id=2]
@@ -36,6 +36,13 @@ font_data = SubResource( 1 )
 
 [sub_resource type="Theme" id=10]
 default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=12]
+size = 128
+font_data = SubResource( 11 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -86,14 +93,6 @@ ESC: menu "
 margin_left = 448.0
 margin_right = 832.0
 margin_bottom = 128.0
-theme = SubResource( 4 )
-align = 1
-
-[node name="CountdownLabel" type="Label" parent="."]
-margin_left = 384.0
-margin_top = 576.0
-margin_right = 928.0
-margin_bottom = 640.0
 theme = SubResource( 4 )
 align = 1
 
@@ -149,6 +148,65 @@ focus_neighbour_bottom = NodePath("../Play")
 text = "Quit"
 flat = true
 
+[node name="LevelControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Menu_Buttons" type="VBoxContainer" parent="LevelControl"]
+margin_top = 277.0
+margin_right = 1278.0
+margin_bottom = 717.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Level1_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_right = 1278.0
+margin_bottom = 107.0
+focus_neighbour_top = NodePath("../Quit")
+text = "Level 1"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Level2_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_top = 111.0
+margin_right = 1278.0
+margin_bottom = 218.0
+text = "Level 2"
+flat = true
+
+[node name="Level3_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_top = 222.0
+margin_right = 1278.0
+margin_bottom = 329.0
+text = "Level 3"
+flat = true
+
+[node name="Return_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_top = 333.0
+margin_right = 1278.0
+margin_bottom = 440.0
+focus_neighbour_top = NodePath("../Level3_Button")
+text = "Return"
+flat = true
+
+[node name="Label" type="Label" parent="LevelControl"]
+margin_left = 256.0
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 12 )
+text = "Sokodot"
+align = 1
+valign = 1
+
 [connection signal="pressed" from="ButtonControl/Menu/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level1_Button" to="." method="_on_Level1_Button_pressed"]

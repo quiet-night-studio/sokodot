@@ -8,6 +8,9 @@ func new_game():
 	# If there is anything, load the correct level.
 	# If not, load level 1.
 	set_level("Level_1")
+	
+func _ready():
+	print(name)
 
 # Sets the player to the defined position.
 func player_position(position):
@@ -21,8 +24,8 @@ func update_moves():
 	moves += 1
 	$HUD.update_moves(str(moves))
 
-func set_level(name):
-	var load_level = load("res://Scenes/" + name + ".tscn")
+func set_level(level_name):
+	var load_level = load("res://Scenes/" + level_name + ".tscn")
 	var level = load_level.instance()
 	add_child(level)
 	player_position(level.start_position())

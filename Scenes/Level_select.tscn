@@ -13,12 +13,12 @@ font_data = SubResource( 1 )
 [sub_resource type="Theme" id=3]
 default_font = SubResource( 2 )
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=6]
 font_path = "res://fonts/ALBA____.TTF"
 
 [sub_resource type="DynamicFont" id=5]
 size = 128
-font_data = SubResource( 4 )
+font_data = SubResource( 6 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0

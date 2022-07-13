@@ -5,7 +5,7 @@ onready var tween = $Tween
 export var speed = 7 
 var should_move = true
 
-var tile_size = 64
+var tile_size = 32
 
 # Sets player inputs based off of Godots built in input map (Project -> Project Settings -> Input Map)
 var inputs = {
