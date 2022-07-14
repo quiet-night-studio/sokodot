@@ -48,6 +48,7 @@ font_data = SubResource( 11 )
 font_path = "res://fonts/ALBA____.TTF"
 
 [sub_resource type="DynamicFont" id=14]
+size = 64
 font_data = SubResource( 13 )
 
 [sub_resource type="Theme" id=15]
@@ -121,16 +122,6 @@ text = "Sokodot"
 align = 1
 valign = 1
 
-[node name="Pause" type="Label" parent="."]
-margin_left = 256.0
-margin_top = 64.0
-margin_right = 1024.0
-margin_bottom = 320.0
-custom_fonts/font = SubResource( 9 )
-text = "Paused"
-align = 1
-valign = 1
-
 [node name="ButtonControl" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -184,9 +175,12 @@ __meta__ = {
 }
 
 [node name="Level1_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_right = 1278.0
+margin_left = 552.0
+margin_right = 725.0
 margin_bottom = 107.0
 focus_neighbour_top = NodePath("../Quit")
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Level 1"
 flat = true
 __meta__ = {
@@ -194,24 +188,33 @@ __meta__ = {
 }
 
 [node name="Level2_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_left = 540.0
 margin_top = 111.0
-margin_right = 1278.0
+margin_right = 738.0
 margin_bottom = 218.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Level 2"
 flat = true
 
 [node name="Level3_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_left = 543.0
 margin_top = 222.0
-margin_right = 1278.0
+margin_right = 735.0
 margin_bottom = 329.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Level 3"
 flat = true
 
 [node name="Return_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_left = 541.0
 margin_top = 333.0
-margin_right = 1278.0
+margin_right = 736.0
 margin_bottom = 440.0
 focus_neighbour_top = NodePath("../Level3_Button")
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Return"
 flat = true
 
@@ -231,6 +234,16 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( -526, 459 )
 theme = SubResource( 15 )
 
+[node name="Pause" type="Label" parent="PauseControl"]
+margin_left = 256.0
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 9 )
+text = "Paused"
+align = 1
+valign = 1
+
 [node name="Menu_Buttons" type="VBoxContainer" parent="PauseControl"]
 margin_top = 277.0
 margin_right = 1278.0
@@ -239,37 +252,44 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="MainMenu_Button" type="Button" parent="PauseControl/Menu_Buttons"]
-margin_right = 1278.0
-margin_bottom = 8.0
-text = "Level 2"
+[node name="resume_button" type="Button" parent="PauseControl/Menu_Buttons"]
+margin_left = 528.0
+margin_right = 750.0
+margin_bottom = 107.0
+focus_neighbour_top = NodePath("../menu_button")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Resume"
 flat = true
-__meta__ = {
-"_editor_description_": ""
-}
 
-[node name="Levels_Button" type="Button" parent="PauseControl/Menu_Buttons"]
-margin_top = 12.0
-margin_right = 1278.0
-margin_bottom = 20.0
-text = "Level 2"
+[node name="levels_button" type="Button" parent="PauseControl/Menu_Buttons"]
+margin_left = 478.0
+margin_top = 111.0
+margin_right = 800.0
+margin_bottom = 218.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Level Select"
 flat = true
-__meta__ = {
-"_editor_description_": ""
-}
 
-[node name="Quit_Button" type="Button" parent="PauseControl/Menu_Buttons"]
-margin_top = 24.0
-margin_right = 1278.0
-margin_bottom = 32.0
-text = "Level 2"
+[node name="menu_button" type="Button" parent="PauseControl/Menu_Buttons"]
+margin_left = 487.0
+margin_top = 222.0
+margin_right = 790.0
+margin_bottom = 329.0
+focus_neighbour_bottom = NodePath("../resume_button")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
 flat = true
-__meta__ = {
-"_editor_description_": ""
-}
 
 [connection signal="pressed" from="ButtonControl/Menu/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level1_Button" to="." method="_on_Level1_Button_pressed"]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level2_Button" to="." method="_on_Level2_Button_pressed"]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level3_Button" to="." method="_on_Level3_Button_pressed"]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Return_Button" to="." method="_on_Return_Button_pressed"]
+[connection signal="pressed" from="PauseControl/Menu_Buttons/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseControl/Menu_Buttons/levels_button" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="PauseControl/Menu_Buttons/menu_button" to="." method="_on_menu_button_pressed"]

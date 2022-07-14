@@ -40,7 +40,6 @@ func _unhandled_input(event):
 
 	# Pause the game
 	if event.is_action_pressed("pause"):
-		print("pause")
 		get_parent().game_pause()
 		
 	# Move the player

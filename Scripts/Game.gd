@@ -31,6 +31,7 @@ func set_level(level_name):
 	player_position(level.start_position())
 	$HUD.display_level(level.display_name)
 	$HUD.game_hud()
+	$Player.should_move = true
 	
 func load_level(filename):
 	remove_child(find_node('Level', true, false))
@@ -60,4 +61,8 @@ func game_end():
 	load_level(node.filename)
 
 func game_pause():
+	$Player.should_move = false
 	$HUD.pause()
+	
+func game_unpause():
+	$Player.should_move = true
