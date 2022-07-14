@@ -40,7 +40,8 @@ func _unhandled_input(event):
 
 	# Pause the game
 	if event.is_action_pressed("pause"):
-		get_tree().change_scene("res://Scenes/Pause_Menu.tscn")
+		print("pause")
+		get_parent().game_pause()
 		
 	# Move the player
 	for dir in inputs.keys():

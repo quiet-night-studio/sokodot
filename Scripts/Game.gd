@@ -58,7 +58,6 @@ func game_end():
 	yield(get_tree().create_timer(2.0), "timeout") # This timeout is needed to give HUD enough time to execute its code
 	var node  = find_node('Level', true, false)
 	load_level(node.filename)
-	
-	
-	
-	
+
+func game_pause():
+	$HUD.pause()

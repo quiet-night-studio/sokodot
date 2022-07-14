@@ -4,6 +4,8 @@ signal start_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Pause.hide()
+	$PauseControl.hide()
 	$LevelControl.hide()
 	$ButtonControl/Menu/Play.grab_focus()
 
@@ -22,6 +24,8 @@ func game_hud():
 	$ButtonControl.hide()
 	$Sokodot.hide()
 	$LevelControl.hide()
+	$PauseControl.hide()
+	$Pause.hide()
 
 # Button controls
 func _on_Play_pressed():
@@ -31,11 +35,16 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_Levels_pressed():
-#	get_tree().change_scene("res://Scenes/Level_select.tscn")
 	$ButtonControl.hide()
 	$LevelControl.show()
 # ==============================
-	
+
+func pause():
+	print("hud pause")
+	game_hud()
+	$Pause.show()
+	$PauseControl.show()
+
 # Win & lose overlay
 func show_game_over_win():
 	$WinLabel.text = "You won!"
@@ -48,3 +57,7 @@ func show_game_over_lose():
 
 func _on_Level1_Button_pressed():
 	get_parent().set_level("Level_1")
+
+func _on_Return_Button_pressed():
+	$ButtonControl.show()
+	$LevelControl.hide()

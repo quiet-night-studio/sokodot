@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sokodot_menu.webm" type="VideoStream" id=2]
@@ -43,6 +43,15 @@ font_path = "res://fonts/ALBA____.TTF"
 [sub_resource type="DynamicFont" id=12]
 size = 128
 font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFontData" id=13]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=14]
+font_data = SubResource( 13 )
+
+[sub_resource type="Theme" id=15]
+default_font = SubResource( 14 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -109,6 +118,16 @@ margin_right = 1024.0
 margin_bottom = 320.0
 custom_fonts/font = SubResource( 9 )
 text = "Sokodot"
+align = 1
+valign = 1
+
+[node name="Pause" type="Label" parent="."]
+margin_left = 256.0
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 9 )
+text = "Paused"
 align = 1
 valign = 1
 
@@ -206,7 +225,51 @@ text = "Sokodot"
 align = 1
 valign = 1
 
+[node name="PauseControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -526, 459 )
+theme = SubResource( 15 )
+
+[node name="Menu_Buttons" type="VBoxContainer" parent="PauseControl"]
+margin_top = 277.0
+margin_right = 1278.0
+margin_bottom = 717.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MainMenu_Button" type="Button" parent="PauseControl/Menu_Buttons"]
+margin_right = 1278.0
+margin_bottom = 8.0
+text = "Level 2"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Levels_Button" type="Button" parent="PauseControl/Menu_Buttons"]
+margin_top = 12.0
+margin_right = 1278.0
+margin_bottom = 20.0
+text = "Level 2"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Quit_Button" type="Button" parent="PauseControl/Menu_Buttons"]
+margin_top = 24.0
+margin_right = 1278.0
+margin_bottom = 32.0
+text = "Level 2"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
 [connection signal="pressed" from="ButtonControl/Menu/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level1_Button" to="." method="_on_Level1_Button_pressed"]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Return_Button" to="." method="_on_Return_Button_pressed"]
