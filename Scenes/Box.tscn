@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Box.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 16, 16 )
+extents = Vector2( 11.5, 16 )
 
 [node name="Box" type="KinematicBody2D" groups=["boxes"]]
 script = ExtResource( 2 )
@@ -13,14 +13,14 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 32, 32 )
+region_rect = Rect2( 0, 0, 26.0205, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 16 )
+position = Vector2( 13.5, 16 )
 shape = SubResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 16, 0 )
-scale = Vector2( 1, 0.6 )
+position = Vector2( 13, 16 )
+scale = Vector2( 1, 1.16 )
 
 [node name="Tween" type="Tween" parent="."]

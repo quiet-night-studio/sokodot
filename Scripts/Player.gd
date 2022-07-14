@@ -57,8 +57,10 @@ func move(dir):
 	var collider = ray.get_collider()
 	if !collider:
 		move_tween(dir)
+		print("player not colliding")
 		get_parent().update_moves()
 	else:
+		print("player colliding")
 		if collider.is_in_group("boxes"):
 			collider.move(inputs[dir])
 
