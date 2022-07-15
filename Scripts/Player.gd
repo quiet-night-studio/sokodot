@@ -46,6 +46,17 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
+			match(dir):
+				"ui_left":
+					get_parent().get_node("Input").set_texture(Left_Input)
+				"ui_right":
+					get_parent().get_node("Input").set_texture(Right_Input)
+				"ui_up":
+					get_parent().get_node("Input").set_texture(Up_Input)
+				"ui_down":
+					get_parent().get_node("Input").set_texture(Down_Input)
+		else:
+			get_parent().get_node("Input").set_texture(No_Input)
 
 func move(dir):
 	ray.cast_to = inputs[dir] * tile_size
