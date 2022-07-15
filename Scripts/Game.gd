@@ -2,15 +2,11 @@ extends Node2D
 
 var moves: int = 0
 
-
 func new_game():
 	# Saved game file should be checked here.
 	# If there is anything, load the correct level.
 	# If not, load level 1.
 	set_level("Level_1")
-	
-func _ready():
-	print(name)
 
 # Sets the player to the defined position.
 func player_position(position):
@@ -42,6 +38,9 @@ func load_level(filename):
 	$HUD.display_level(level.display_name)
 	$HUD.game_hud()
 	$Player.should_move = true
+	# We have to reset the moves counter
+	moves = 0
+	$HUD.update_moves(str(moves))
 	
 func game_win(level_path):
 	$Player.should_move = false

@@ -25,7 +25,6 @@ func game_hud():
 	$Sokodot.hide()
 	$LevelControl.hide()
 	$PauseControl.hide()
-	
 
 # Main Menu
 func _on_Play_pressed():
@@ -38,31 +37,14 @@ func _on_Play_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 
-# BUG: Caused by the level selection bug I think
 func _on_Levels_pressed():
 	$ButtonControl.hide()
 	$LevelControl.show()
 # ==============================
 
 # Level Selection Menu
-# BUG: If we use the set_level function, selecting a level in the pause menu of a current level does not remove the past child.
-#	   If we use the load_level function, it cannot find the next level.
-func _on_Level1_Button_pressed():
-	get_parent().load_level("Level_1")
-	$MoveCounter.show()
-	$MoveLabel.show()
-	$LevelLabel.show()
-	$ResetLabel.show()
-	
-func _on_Level2_Button_pressed():
-	get_parent().load_level("Level_2")
-	$MoveCounter.show()
-	$MoveLabel.show()
-	$LevelLabel.show()
-	$ResetLabel.show()
-	
-func _on_Level3_Button_pressed():
-	get_parent().load_level("Level_3")
+func _on_Button_pressed(name: String) -> void:
+	get_parent().load_level("res://Scenes/"+name+".tscn")
 	$MoveCounter.show()
 	$MoveLabel.show()
 	$LevelLabel.show()
@@ -93,7 +75,6 @@ func _on_resume_button_pressed():
 	$ResetLabel.show()
 	
 func _on_levels_button_pressed():
-	print('The button was pressed')
 	$PauseControl.hide()
 	$LevelControl.show()
 	$LevelControl/Menu_Buttons/Level1_Button.grab_focus()

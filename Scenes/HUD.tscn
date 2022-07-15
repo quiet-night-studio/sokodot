@@ -229,7 +229,8 @@ align = 1
 valign = 1
 
 [node name="PauseControl" type="Control" parent="."]
-margin_right = 40.0
+margin_left = 3.0
+margin_right = 43.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( -526, 459 )
 theme = SubResource( 15 )
@@ -286,8 +287,8 @@ flat = true
 [connection signal="pressed" from="ButtonControl/Menu/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="ButtonControl/Menu/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="pressed" from="LevelControl/Menu_Buttons/Level1_Button" to="." method="_on_Level1_Button_pressed"]
-[connection signal="pressed" from="LevelControl/Menu_Buttons/Level2_Button" to="." method="_on_Level2_Button_pressed"]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level1_Button" to="." method="_on_Button_pressed" binds= [ "Level_1" ]]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level2_Button" to="." method="_on_Button_pressed" binds= [ "Level_2" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level3_Button" to="." method="_on_Level3_Button_pressed"]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Return_Button" to="." method="_on_Return_Button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/resume_button" to="." method="_on_resume_button_pressed"]
