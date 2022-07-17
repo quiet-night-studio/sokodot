@@ -6,6 +6,7 @@ func new_game():
 	# Saved game file should be checked here.
 	# If there is anything, load the correct level.
 	# If not, load level 1.
+	$HUD.playing = true
 	set_level("Level_1")
 
 # Sets the player to the defined position.
@@ -37,6 +38,7 @@ func load_level(filename):
 	player_position(level.start_position())
 	$HUD.display_level(level.display_name)
 	$HUD.game_hud()
+	$HUD.playing = true
 	$Player.should_move = true
 	# We have to reset the moves counter
 	moves = 0
@@ -51,7 +53,7 @@ func game_win(level_path):
 		load_level(level_path)
 	else:
 		print('The next level does not exist.')
-	
+
 func game_end():
 	$Player.should_move = false
 	$HUD.show_game_over_lose()
@@ -60,8 +62,16 @@ func game_end():
 	load_level(node.filename)
 
 func game_pause():
+	$HUD.playing = false
 	$Player.should_move = false
 	$HUD.pause()
-	
+
 func game_unpause():
 	$Player.should_move = true
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		if($HUD.playing):
+			game_pause()
+		else:
+			$HUD._on_resume_button_pressed()

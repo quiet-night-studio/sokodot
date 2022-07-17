@@ -3,8 +3,6 @@ extends Node2D
 var spot_counter = 1
 var display_name: String
 
-signal game_end
-
 # When level loaded, display the level number based off of the name of the level filename.
 func _ready():
 	display_name = "Level " + str(int(filename)) # -> res://Scenes/Level_X.tscn
@@ -19,6 +17,11 @@ func spot_manager():
 	if spot_counter == 0:
 		var level_path = "res://Scenes/Level_" + str(int(filename) + 1) + ".tscn"
 		get_parent().game_win(level_path)
-		
+
 func _on_Deadzone_dead(): # Consider changing the name of this function to something more understandable.
 	get_parent().game_end()
+
+func _unhandled_input(event):
+	# Reset the game
+	if event.is_action_pressed("reset"):
+		get_parent().load_level(filename)

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal start_game
+var playing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,9 +64,10 @@ func pause():
 	$MoveLabel.hide()
 	$LevelLabel.hide() # -> I would make these into a function called hide_hud but we have a function named game_hud,
 	$ResetLabel.hide() # I cannot think of a better name though
+
 	$PauseControl.show()
 	$PauseControl/Menu_Buttons/resume_button.grab_focus()
-	
+
 func _on_resume_button_pressed():
 	get_parent().game_unpause() # I think there is a better way to organize this
 	$PauseControl.hide()
@@ -73,20 +75,22 @@ func _on_resume_button_pressed():
 	$MoveLabel.show()
 	$LevelLabel.show()
 	$ResetLabel.show()
-	
+	playing = true
+
 func _on_levels_button_pressed():
 	$PauseControl.hide()
 	$LevelControl.show()
 	$LevelControl/Menu_Buttons/Level1_Button.grab_focus()
-	
+
 func _on_menu_button_pressed():
+	playing = false
 	$ButtonControl/Menu/Play.grab_focus()
 	$VideoPlayer.show()
 	$VideoPlayer.paused = false # I *think* this line fixes the videoplayer freezing when transitioning menus
 	$Sokodot.show()
 	$PauseControl.hide()
 	$ButtonControl.show()
-	
+
 # ==============================
 
 # Win & lose HUD control

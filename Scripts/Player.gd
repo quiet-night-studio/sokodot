@@ -29,19 +29,11 @@ func _unhandled_input(event):
 	# If the player shouldn't be moving, don't move the player
 	if !should_move:
 		return
-		
+
 	# If the transition animation is happening, don't move the player
 	if tween.is_active():
 		return
 
-	# Reset the game
-	if event.is_action_pressed("reset"):
-		get_tree().reload_current_scene()
-
-	# Pause the game
-	if event.is_action_pressed("pause"):
-		get_parent().game_pause()
-		
 	# Move the player
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
