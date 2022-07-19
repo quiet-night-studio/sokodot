@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Interiors_free_32x32.png-6fe47958a5fd63ae6e01809e0f10fcbf.stex"
+path="res://.import/Interiors_free_32x32.png-87ec18d6f6b2e48fa8c0c0b4fcb90581.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Interiors_free_32x32.png"
-dest_files=[ "res://.import/Interiors_free_32x32.png-6fe47958a5fd63ae6e01809e0f10fcbf.stex" ]
+source_file="res://assets/Rooms/Interiors_free_32x32.png"
+dest_files=[ "res://.import/Interiors_free_32x32.png-87ec18d6f6b2e48fa8c0c0b4fcb90581.stex" ]
 
 [params]
 

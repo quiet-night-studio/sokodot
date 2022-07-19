@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LevelTilesheet.png-33a2f554c78fa74f6565b03b96925494.stex"
+path="res://.import/Set_C_Interiors.png-16cee51503fb989b94f361db119f502c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/LevelTilesheet.png"
-dest_files=[ "res://.import/LevelTilesheet.png-33a2f554c78fa74f6565b03b96925494.stex" ]
+source_file="res://assets/Rooms/Set_C_Interiors.png"
+dest_files=[ "res://.import/Set_C_Interiors.png-16cee51503fb989b94f361db119f502c.stex" ]
 
 [params]
 

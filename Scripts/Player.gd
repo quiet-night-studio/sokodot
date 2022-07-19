@@ -15,13 +15,6 @@ var inputs = {
 	"ui_down": Vector2.DOWN
 }
 
-# Old Input Overlay - Not currently working
-var No_Input = preload("res://assets/No_Input.png")
-var Left_Input = preload("res://assets/Left_Input.png")
-var Right_Input = preload("res://assets/Right_Input.png")
-var Up_Input = preload("res://assets/Up_Input.png")
-var Down_Input = preload("res://assets/Down_Input.png")
-
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 
@@ -38,17 +31,6 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
-			match(dir):
-				"ui_left":
-					get_parent().get_node("Input").set_texture(Left_Input)
-				"ui_right":
-					get_parent().get_node("Input").set_texture(Right_Input)
-				"ui_up":
-					get_parent().get_node("Input").set_texture(Up_Input)
-				"ui_down":
-					get_parent().get_node("Input").set_texture(Down_Input)
-		else:
-			get_parent().get_node("Input").set_texture(No_Input)
 
 func move(dir):
 	ray.cast_to = inputs[dir] * tile_size

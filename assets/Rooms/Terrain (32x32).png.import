@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Set_C_Interiors.png-1d97c3fce1c5d3ab186bb1b3128e520a.stex"
+path="res://.import/Terrain (32x32).png-a54bddce2302dc0df944a839328a348c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Set_C_Interiors.png"
-dest_files=[ "res://.import/Set_C_Interiors.png-1d97c3fce1c5d3ab186bb1b3128e520a.stex" ]
+source_file="res://assets/Rooms/Terrain (32x32).png"
+dest_files=[ "res://.import/Terrain (32x32).png-a54bddce2302dc0df944a839328a348c.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Terrain (32x32).png-0c0c45dce30e6ff67c2d7e6ccf452d06.stex"
+path="res://.import/Wooden Pixel Art GUI 32x32.png-1b6ab9f89d1ffcd71fe88a38cc10dbc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Terrain (32x32).png"
-dest_files=[ "res://.import/Terrain (32x32).png-0c0c45dce30e6ff67c2d7e6ccf452d06.stex" ]
+source_file="res://assets/Wooden Pixel Art GUI 32x32.png"
+dest_files=[ "res://.import/Wooden Pixel Art GUI 32x32.png-1b6ab9f89d1ffcd71fe88a38cc10dbc5.stex" ]
 
 [params]
 

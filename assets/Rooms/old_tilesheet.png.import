@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/drawer.png-d9a61cfefcd0d54d1e6161c73409ed63.stex"
+path="res://.import/old_tilesheet.png-b5c2377baf62c89ca2ca9ddb6a380512.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drawer.png"
-dest_files=[ "res://.import/drawer.png-d9a61cfefcd0d54d1e6161c73409ed63.stex" ]
+source_file="res://assets/Rooms/old_tilesheet.png"
+dest_files=[ "res://.import/old_tilesheet.png-b5c2377baf62c89ca2ca9ddb6a380512.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
