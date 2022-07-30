@@ -5,9 +5,9 @@ var moves: int = 0
 func new_game():
 	$HUD.playing = true
 
-	var data = DataManager.load_game()
-	if(data):
-		load_level(data.current_level)
+	if(DataManager.save_exists()):
+		DataManager.load_savegame()
+		load_level(DataManager.level_name)
 	else:
 		set_level("Level_1")
 
@@ -49,10 +49,8 @@ func load_level(filename):
 	$HUD.update_moves(str(moves))
 	
 func game_win(level_path):
-	DataManager.data = {
-		"current_level": level_path,
-	}
-	DataManager.save_game()
+	DataManager.level_name = level_path
+	DataManager.write_savegame()
 
 	$Player.should_move = false
 	$HUD.show_game_over_win()

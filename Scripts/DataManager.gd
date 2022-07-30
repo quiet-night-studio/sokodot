@@ -1,28 +1,43 @@
 extends Node
 
-var file_name = "save.data"
-var data = {}
-var file_directory = "res://"+file_name
+const SAVE_GAME_PATH = "user://save.res"
 
-func _ready():
-	load_game()
-	
+var level_name := ""
+var player_position := Vector2.ZERO
+
+var _file := File.new()
+
+func save_exists():
+	return _file.file_exists(SAVE_GAME_PATH)
+
 # Opens the savefile named in the variable above called "file_name", writes any data asked for, then saves on the final line.
-func save_game():
-	var file = File.new()
-	file.open(file_directory, file.WRITE)
-	file.store_var(data)
-	file.close()
+func write_savegame():
+	var error := _file.open(SAVE_GAME_PATH, File.WRITE)
+	if error != OK:
+		printerr("Could not open the file %s. Error: %s" % [SAVE_GAME_PATH, error])
+		return
+	
+	var data := {
+		"level_name": level_name,
+		"player_position":{
+			"x": player_position.x,
+			"y": player_position.y
+		}
+	}
+	
+	var json_string := JSON.print(data)
+	_file.store_string(json_string)
+	_file.close()
 
-# Opens the savefile if it exists, loads the data, then closes the file. If data does not exist, default to the values in the else statement.
-func load_game():
-	var file = File.new()
-	if file.file_exists(file_directory):
-		file.open(file_directory, file.READ)
-		data = file.get_var()
-		file.close()
-
-		return data
-	else:
-		return null
-
+func load_savegame():
+	var error := _file.open(SAVE_GAME_PATH, File.READ)
+	if error != OK:
+		printerr("Could not open the file %s. Error: %s" % [SAVE_GAME_PATH, error])
+		return
+	
+	var content := _file.get_as_text()
+	_file.close()
+	
+	var data: Dictionary = JSON.parse(content).result
+	player_position = Vector2(data.player_position.x, data.player_position.y)
+	level_name = data.level_name
