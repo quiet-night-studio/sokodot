@@ -2,9 +2,7 @@ extends Node
 
 var file_name = "save.data"
 var data = {}
-var file_directory = "user://"+file_name
-
-
+var file_directory = "res://"+file_name
 
 func _ready():
 	load_game()
@@ -23,11 +21,8 @@ func load_game():
 		file.open(file_directory, file.READ)
 		data = file.get_var()
 		file.close()
+
+		return data
 	else:
-		data = {
-			"moves": 420,
-			"current_level": {},
-			"objects": {}
-		}
-	return data
+		return null
 

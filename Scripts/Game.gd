@@ -3,11 +3,13 @@ extends Node2D
 var moves: int = 0
 
 func new_game():
-	# Saved game file should be checked here.
-	# If there is anything, load the correct level.
-	# If not, load level 1.
 	$HUD.playing = true
-	set_level("Level_1")
+
+	var data = DataManager.load_game()
+	if(data):
+		load_level(data.current_level)
+	else:
+		set_level("Level_1")
 
 # Sets the player to the defined position.
 func player_position(position):
@@ -31,7 +33,10 @@ func set_level(level_name):
 	$Player.should_move = true
 	
 func load_level(filename):
-	remove_child(find_node('Level', true, false))
+	var current_level_node = find_node('Level', true, false)
+	if(current_level_node):
+		remove_child(current_level_node)
+
 	var next_level = load(filename)
 	var level = next_level.instance()
 	add_child(level)
@@ -40,11 +45,15 @@ func load_level(filename):
 	$HUD.game_hud()
 	$HUD.playing = true
 	$Player.should_move = true
-	# We have to reset the moves counter
 	moves = 0
 	$HUD.update_moves(str(moves))
 	
 func game_win(level_path):
+	DataManager.data = {
+		"current_level": level_path,
+	}
+	DataManager.save_game()
+
 	$Player.should_move = false
 	$HUD.show_game_over_win()
 	yield(get_tree().create_timer(2.0), "timeout") # This timeout is needed to allow HUD to execute its code
