@@ -1,10 +1,10 @@
 extends Sprite
 
-var default = preload("res://Assets/No_Input.png")
-var left = preload("res://Assets/Left_Input.png")
-var right = preload("res://Assets/Right_Input.png")
-var down = preload("res://Assets/Down_Input.png")
-var up = preload("res://Assets/Up_Input.png")
+var default = preload("res://assets/No_Input.png")
+var left = preload("res://assets/Left_Input.png")
+var right = preload("res://assets/Right_Input.png")
+var down = preload("res://assets/Down_Input.png")
+var up = preload("res://assets/Up_Input.png")
 
 
 func _input(event):
