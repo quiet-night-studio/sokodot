@@ -123,7 +123,6 @@ align = 1
 valign = 1
 
 [node name="ButtonControl" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 10 )
@@ -160,7 +159,6 @@ text = "Quit"
 flat = true
 
 [node name="LevelControl" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 10 )
@@ -265,22 +263,11 @@ size_flags_vertical = 4
 text = "Resume"
 flat = true
 
-[node name="save_button" type="Button" parent="PauseControl/Menu_Buttons"]
-margin_left = 570.0
-margin_top = 111.0
-margin_right = 707.0
-margin_bottom = 218.0
-focus_neighbour_top = NodePath("../menu_button")
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Save"
-flat = true
-
 [node name="levels_button" type="Button" parent="PauseControl/Menu_Buttons"]
 margin_left = 478.0
-margin_top = 222.0
+margin_top = 111.0
 margin_right = 800.0
-margin_bottom = 329.0
+margin_bottom = 218.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level Select"
@@ -288,9 +275,9 @@ flat = true
 
 [node name="menu_button" type="Button" parent="PauseControl/Menu_Buttons"]
 margin_left = 487.0
-margin_top = 333.0
+margin_top = 222.0
 margin_right = 790.0
-margin_bottom = 440.0
+margin_bottom = 329.0
 focus_neighbour_bottom = NodePath("../resume_button")
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -305,6 +292,5 @@ flat = true
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level3_Button" to="." method="_on_Level3_Button_pressed"]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Return_Button" to="." method="_on_Return_Button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/resume_button" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseControl/Menu_Buttons/save_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/levels_button" to="." method="_on_levels_button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/menu_button" to="." method="_on_menu_button_pressed"]
