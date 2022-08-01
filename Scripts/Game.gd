@@ -9,7 +9,7 @@ func new_game():
 		DataManager.load_savegame()
 		load_level(DataManager.level_name)
 	else:
-		set_level("Level_1")		
+		set_level("Level_1")
 
 # Sets the player to the defined position.
 func player_position(position):

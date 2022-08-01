@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sokodot_menu.webm" type="VideoStream" id=2]
@@ -66,6 +66,16 @@ font_data = SubResource( 1 )
 
 [sub_resource type="Theme" id=10]
 default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=25]
+font_path = "res://fonts/ALBA____.TTF"
+
+[sub_resource type="DynamicFont" id=26]
+size = 48
+font_data = SubResource( 25 )
+
+[sub_resource type="Theme" id=27]
+default_font = SubResource( 26 )
 
 [sub_resource type="DynamicFontData" id=11]
 font_path = "res://fonts/ALBA____.TTF"
@@ -182,10 +192,10 @@ __meta__ = {
 }
 
 [node name="Menu" type="VBoxContainer" parent="ButtonControl"]
-margin_left = 439.68
-margin_top = 384.0
-margin_right = 847.68
-margin_bottom = 713.0
+margin_left = 441.0
+margin_top = 338.0
+margin_right = 849.0
+margin_bottom = 667.0
 
 [node name="Play" type="Button" parent="ButtonControl/Menu"]
 margin_right = 408.0
@@ -218,18 +228,20 @@ __meta__ = {
 }
 
 [node name="Menu_Buttons" type="VBoxContainer" parent="LevelControl"]
-margin_top = 277.0
-margin_right = 1278.0
-margin_bottom = 717.0
+margin_left = 9.0
+margin_top = 278.0
+margin_right = 1287.0
+margin_bottom = 718.0
+theme = SubResource( 27 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="Level1_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 552.0
-margin_right = 725.0
-margin_bottom = 107.0
-focus_neighbour_top = NodePath("../Quit")
+margin_left = 570.0
+margin_right = 707.0
+margin_bottom = 83.0
+focus_neighbour_top = NodePath("../Return_Button")
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level 1"
@@ -239,31 +251,45 @@ __meta__ = {
 }
 
 [node name="Level2_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 540.0
-margin_top = 111.0
-margin_right = 738.0
-margin_bottom = 218.0
+margin_left = 562.0
+margin_top = 87.0
+margin_right = 716.0
+margin_bottom = 170.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level 2"
 flat = true
 
 [node name="Level3_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 543.0
-margin_top = 222.0
-margin_right = 735.0
-margin_bottom = 329.0
+margin_left = 563.0
+margin_top = 174.0
+margin_right = 714.0
+margin_bottom = 257.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level 3"
 flat = true
 
+[node name="Level4_Button" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_left = 563.0
+margin_top = 261.0
+margin_right = 714.0
+margin_bottom = 344.0
+focus_neighbour_top = NodePath("../Quit")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Level 4"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Return_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 541.0
-margin_top = 333.0
-margin_right = 736.0
-margin_bottom = 440.0
-focus_neighbour_top = NodePath("../Level3_Button")
+margin_left = 562.0
+margin_top = 348.0
+margin_right = 716.0
+margin_bottom = 431.0
+focus_neighbour_top = NodePath("../Level1_Button")
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Return"
@@ -278,6 +304,14 @@ custom_fonts/font = SubResource( 12 )
 text = "Sokodot"
 align = 1
 valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="LevelControl"]
+visible = false
+margin_left = 922.0
+margin_top = 392.0
+margin_right = 1160.0
+margin_bottom = 503.0
+align = 1
 
 [node name="PauseControl" type="Control" parent="."]
 margin_left = 3.0
@@ -341,6 +375,7 @@ flat = true
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level1_Button" to="." method="_on_Button_pressed" binds= [ "Level_1" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level2_Button" to="." method="_on_Button_pressed" binds= [ "Level_2" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level3_Button" to="." method="_on_Button_pressed" binds= [ "Level_3" ]]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level4_Button" to="." method="_on_Button_pressed" binds= [ "Level_4" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Return_Button" to="." method="_on_Return_Button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/levels_button" to="." method="_on_levels_button_pressed"]
