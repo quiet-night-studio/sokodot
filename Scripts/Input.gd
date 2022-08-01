@@ -22,10 +22,14 @@ func _input(event):
 #	If the key is not being pressed
 	if event is InputEventKey and !event.pressed:
 		if event.scancode == KEY_UP:
+			yield(get_tree().create_timer(0.1), "timeout")
 			texture = default
 		if event.scancode == KEY_DOWN:
+			yield(get_tree().create_timer(0.1), "timeout")
 			texture = default
 		if event.scancode == KEY_LEFT:
+			yield(get_tree().create_timer(0.1), "timeout")
 			texture = default
 		if event.scancode == KEY_RIGHT:
+			yield(get_tree().create_timer(0.1), "timeout")
 			texture = default

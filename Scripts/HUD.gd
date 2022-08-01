@@ -24,6 +24,7 @@ func game_hud():
 	$VideoPlayer.hide()
 	$ButtonControl.hide()
 	$Sokodot.hide()
+	$version.hide()
 	$LevelControl.hide()
 	$PauseControl.hide()
 
@@ -60,6 +61,7 @@ func _on_Return_Button_pressed():
 # Pause Menu
 func pause():
 	game_hud()
+	$BeatLabel.hide()
 	$MoveCounter.hide()
 	$MoveLabel.hide()
 	$LevelLabel.hide() # -> I would make these into a function called hide_hud but we have a function named game_hud,
@@ -88,6 +90,7 @@ func _on_menu_button_pressed():
 	$VideoPlayer.show()
 	$VideoPlayer.paused = false # I *think* this line fixes the videoplayer freezing when transitioning menus
 	$Sokodot.show()
+	$version.show()
 	$PauseControl.hide()
 	$ButtonControl.show()
 
@@ -95,10 +98,14 @@ func _on_menu_button_pressed():
 
 # Win & lose HUD control
 func show_game_over_win():
-	$WinLabel.text = "You won!"
+	$WinLabel.text = "You completed the level!"
 	$WinLabel.show()
 
 func show_game_over_lose():
 	$WinLabel.hide()
 	$LoseLabel.text = "Try again!"
 	$LoseLabel.show()
+	
+func show_last_win():
+	$BeatLabel.show()
+

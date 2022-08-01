@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var tile_size = 32
+var tile_size = 64
 export var speed = 7
 
 onready var tween = $Tween

@@ -6,6 +6,9 @@ var display_name: String
 # When level loaded, display the level number based off of the name of the level filename.
 func _ready():
 	display_name = "Level " + str(int(filename)) # -> res://Scenes/Level_X.tscn
+	var level = int(filename)
+	if level % 4 == 0: # If level is a multiple of 3, increase the spot count.
+		spot_counter += 1
 
 # Sends game script location of the Position2D node when called upon - used when resetting, changing, or leaving a level.
 func start_position() -> Vector2:

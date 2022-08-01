@@ -9,7 +9,7 @@ func new_game():
 		DataManager.load_savegame()
 		load_level(DataManager.level_name)
 	else:
-		set_level("Level_1")
+		set_level("Level_1")		
 
 # Sets the player to the defined position.
 func player_position(position):
@@ -33,10 +33,19 @@ func set_level(level_name):
 	$Player.should_move = true
 	
 func load_level(filename):
+# If there is a level child attached to the game scene, remove it before continuing.
 	var current_level_node = find_node('Level', true, false)
 	if(current_level_node):
 		remove_child(current_level_node)
-
+		
+# 	If the level does not exist, load the next level that does exist.
+	if !ResourceLoader.exists(filename):
+		filename = "res://Scenes/Level_" + str(int(filename) -1 ) + ".tscn"
+		print('This level does not exist. Reverting to last existing level.') 
+		# This DOES NOT work if the level is 7 and the next available is 5. 
+		# That shouldn't be a problem though, as it shouldn't be possible to become two non-exising levels ahead.
+		
+#	Load the next level	and apply HUD + player information.
 	var next_level = load(filename)
 	var level = next_level.instance()
 	add_child(level)
@@ -59,6 +68,8 @@ func game_win(level_path):
 	if file.file_exists(level_path):
 		load_level(level_path)
 	else:
+		$HUD.game_hud()
+		$HUD.show_last_win()
 		print('The next level does not exist.')
 
 func game_end():
