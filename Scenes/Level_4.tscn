@@ -534,10 +534,10 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Spot" parent="." instance=ExtResource( 7 )]
+[node name="Spot" parent="." groups=["spot"] instance=ExtResource( 7 )]
 position = Vector2( 896, 384 )
 
-[node name="Spot2" parent="." instance=ExtResource( 7 )]
+[node name="Spot2" parent="." groups=["spot"] instance=ExtResource( 7 )]
 position = Vector2( 320, 384 )
 
 [node name="TileMap" type="TileMap" parent="." groups=["walls"]]

@@ -29,7 +29,7 @@ func _unhandled_input(event):
 
 	# Move the player
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
+		if event.is_action_pressed(dir, true):
 			move(dir)
 
 func move(dir):
@@ -45,7 +45,10 @@ func move(dir):
 		get_parent().update_moves()
 	else:
 		if collider.is_in_group("boxes"):
-			collider.move(inputs[dir])
+			var result = collider.move(inputs[dir])
+			if result:
+				get_parent().update_moves()
+				move_tween(dir)
 
 # Moves the player in an animated sensation at the speed and amount based on tile_size and speed amount.
 func move_tween(dir):

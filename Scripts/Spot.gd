@@ -11,3 +11,4 @@ func _on_Spot_body_entered(body):
 func _on_Spot_hit():
 	get_parent().spot_manager()
 	#pass # Replace with function body.
+	

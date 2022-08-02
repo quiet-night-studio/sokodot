@@ -27,6 +27,7 @@ func set_level(level_name):
 	var load_level = load("res://Scenes/" + level_name + ".tscn")
 	var level = load_level.instance()
 	add_child(level)
+	$HUD.ingame = true
 	player_position(level.start_position())
 	$HUD.display_level(level.display_name)
 	$HUD.game_hud()
@@ -49,6 +50,7 @@ func load_level(filename):
 	var next_level = load(filename)
 	var level = next_level.instance()
 	add_child(level)
+	$HUD.ingame = true
 	player_position(level.start_position())
 	$HUD.display_level(level.display_name)
 	$HUD.game_hud()
@@ -93,3 +95,7 @@ func _unhandled_input(event):
 			game_pause()
 		else:
 			$HUD._on_resume_button_pressed()
+			
+func save_game(level_path):
+	DataManager.level_name = level_path
+	DataManager.write_savegame()

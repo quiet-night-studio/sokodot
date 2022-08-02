@@ -11,6 +11,8 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		move_tween(dir)
+		return true
+	return false
 
 func move_tween(dir):
 	tween.interpolate_property(self, "position",

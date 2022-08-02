@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal start_game
 var playing = false
+var ingame = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,7 +54,10 @@ func _on_Button_pressed(name: String) -> void:
 	$ResetLabel.show()
 
 func _on_Return_Button_pressed():
-	$ButtonControl.show()
+	if ingame == false:
+		$ButtonControl.show()
+	else:
+		pause()
 	$LevelControl.hide()
 
 # ==============================
@@ -86,6 +90,7 @@ func _on_levels_button_pressed():
 
 func _on_menu_button_pressed():
 	playing = false
+	ingame = false
 	$ButtonControl/Menu/Play.grab_focus()
 	$VideoPlayer.show()
 	$VideoPlayer.paused = false # I *think* this line fixes the videoplayer freezing when transitioning menus
