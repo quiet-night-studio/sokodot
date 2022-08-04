@@ -20,4 +20,6 @@ position = Vector2( 32, 34 )
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Spot_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Spot_body_exited"]
 [connection signal="hit" from="." to="." method="_on_Spot_hit"]
+[connection signal="nothit" from="." to="." method="_on_Spot_nothit"]

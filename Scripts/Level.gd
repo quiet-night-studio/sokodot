@@ -15,13 +15,21 @@ func _ready():
 # Sends game script location of the Position2D node when called upon - used when resetting, changing, or leaving a level.
 func start_position() -> Vector2:
 	return $StartPosition.position
-
+	
+	
+func spot_loss():
+	spot_counter +=1
+	print(spot_counter)
+	
 # If all spots are returning a value of 0, call the win function and tell it to result with the name of the next level.
 func spot_manager():
 	spot_counter -= 1
+	print(spot_counter)
+	yield(get_tree().create_timer(1.0), "timeout")
 	if spot_counter == 0:
 		var level_path = "res://Scenes/Level_" + str(int(filename) + 1) + ".tscn"
 		get_parent().game_win(level_path)
+		
 
 func _on_Deadzone_dead(): # Consider changing the name of this function to something more understandable.
 	get_parent().game_end()
