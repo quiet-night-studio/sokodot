@@ -1,11 +1,12 @@
 [gd_scene load_steps=50 format=2]
 
-[ext_resource path="res://assets/Rooms/old_tilesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/old_tilesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/Rooms/Terrain (32x32).png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Deadzone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Spot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=7]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )

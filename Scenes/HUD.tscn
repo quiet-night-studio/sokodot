@@ -71,7 +71,7 @@ default_font = SubResource( 2 )
 font_path = "res://fonts/ALBA____.TTF"
 
 [sub_resource type="DynamicFont" id=26]
-size = 48
+size = 32
 font_data = SubResource( 25 )
 
 [sub_resource type="Theme" id=27]
@@ -238,9 +238,9 @@ __meta__ = {
 }
 
 [node name="Level1_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 570.0
-margin_right = 707.0
-margin_bottom = 83.0
+margin_left = 591.0
+margin_right = 687.0
+margin_bottom = 57.0
 focus_neighbour_top = NodePath("../Return_Button")
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -251,30 +251,30 @@ __meta__ = {
 }
 
 [node name="Level2_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 562.0
-margin_top = 87.0
-margin_right = 716.0
-margin_bottom = 170.0
+margin_left = 585.0
+margin_top = 61.0
+margin_right = 693.0
+margin_bottom = 118.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level 2"
 flat = true
 
 [node name="Level3_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 563.0
-margin_top = 174.0
-margin_right = 714.0
-margin_bottom = 257.0
+margin_left = 586.0
+margin_top = 122.0
+margin_right = 692.0
+margin_bottom = 179.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Level 3"
 flat = true
 
 [node name="Level4_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 563.0
-margin_top = 261.0
-margin_right = 714.0
-margin_bottom = 344.0
+margin_left = 585.0
+margin_top = 183.0
+margin_right = 692.0
+margin_bottom = 240.0
 focus_neighbour_top = NodePath("../Quit")
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -284,11 +284,39 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Level5_Button2" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_left = 586.0
+margin_top = 244.0
+margin_right = 692.0
+margin_bottom = 301.0
+focus_neighbour_top = NodePath("../Quit")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Level 5"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Level6_Button3" type="Button" parent="LevelControl/Menu_Buttons"]
+margin_left = 584.0
+margin_top = 305.0
+margin_right = 693.0
+margin_bottom = 362.0
+focus_neighbour_top = NodePath("../Quit")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Level 6"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Return_Button" type="Button" parent="LevelControl/Menu_Buttons"]
-margin_left = 562.0
-margin_top = 348.0
-margin_right = 716.0
-margin_bottom = 431.0
+margin_left = 585.0
+margin_top = 366.0
+margin_right = 693.0
+margin_bottom = 423.0
 focus_neighbour_top = NodePath("../Level1_Button")
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -376,6 +404,8 @@ flat = true
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level2_Button" to="." method="_on_Button_pressed" binds= [ "Level_2" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level3_Button" to="." method="_on_Button_pressed" binds= [ "Level_3" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Level4_Button" to="." method="_on_Button_pressed" binds= [ "Level_4" ]]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level5_Button2" to="." method="_on_Button_pressed" binds= [ "Level_5" ]]
+[connection signal="pressed" from="LevelControl/Menu_Buttons/Level6_Button3" to="." method="_on_Button_pressed" binds= [ "Level_6" ]]
 [connection signal="pressed" from="LevelControl/Menu_Buttons/Return_Button" to="." method="_on_Return_Button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseControl/Menu_Buttons/levels_button" to="." method="_on_levels_button_pressed"]
