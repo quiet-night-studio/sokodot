@@ -7,7 +7,6 @@ var display_name: String
 func _ready():
 	spot_counter = 0
 	display_name = "Level " + str(int(filename)) # -> res://Scenes/Level_X.tscn
-	var level = int(filename)
 	for child in get_children():
 		if child.is_in_group("spot"):
 			spot_counter +=1

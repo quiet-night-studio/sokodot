@@ -16,7 +16,7 @@ func write_savegame():
 	if error != OK:
 		printerr("Could not open the file %s. Error: %s" % [SAVE_GAME_PATH, error])
 		return
-	
+
 	var data := {
 		"level_name": level_name,
 		"player_position":{
@@ -24,7 +24,7 @@ func write_savegame():
 			"y": player_position.y
 		}
 	}
-	
+
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
 	_file.close()
